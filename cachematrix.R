@@ -27,7 +27,7 @@ cacheSolve <- function(x, ...)
 {
 	inv <- x$getinv()
   if(!is.null(inv)){             #will cause function check inverse if NULL
-    message("I get the correct Answer")
+    message("Get Correct Answer")
     return(inv)                    #will cause to that the returns value inverse
   }
   data<- x$get()
