@@ -1,38 +1,39 @@
-## Gives correct answer for matrix
-## Computing Square Matrix
+## Calculate whether function NULL
+## Get Answer Matrix
 
-## Special Vector Function
-
-makeCacheMatrix <- function(x = matrix()) {
-	inv <- NULL                      #null will inverse be initialize
-  set <- function(y) {
-    x <<- y
-    inv <<- NULL
+## Function Vector
+makeCacheMatrix <- function(P = matrix()) {
+  R <- NULL                              #null will 'R'
+    set <- function(x) {
+    P <<- x                                #matrix will 'P'
+    R <<- NULL
   }
-  get <- function()x            #where can get matrix x function
-  setinv <- function(inverse) {inv <<- inverse}
-  getinv <- function() {
-    inver<-ginv(x)
-    inver%*%x                   #will help inverse of matrix be obtain
-  }               				
-  list(set = set, get = get, 
-       setinv = setinv, 
-       getinv = getinv)
+  get <- function()P                       #get matrix 'P' function
+  setpasar <- function(pasar) R<-pasar
+  getpasar <- function(pasar) R
+  list(set = set, get = get,               #list function perform
+       setpasar = setpasar, 
+       getpasar = getpasar)
 }
 
+## Get Data Set Value Answer
+## mean transform go(Spanish = pasar)
+## data transform notitia(Latin = data)
 
-## Calculate mean set data value
-
-cacheSolve <- function(x, ...) 
+cachepasar <- function(P, ...)
 {
-	inv <- x$getinv()
-  if(!is.null(inv)){             #will cause function check inverse if NULL
-    message("Get Correct Answer")
-    return(inv)                    #will cause to that the returns value inverse
+  R<-P$getpasar()
+  if(!is.null(P)){                          #cause function check 'P', NULL
+    message("ut rectam responsum")          #end message (Latin = Get Correct Answer)
+    return(R)                               #cause return value 'R'
   }
-  data<- x$get()
-  inv<- solve(data, ...)              #function helps calculate value inverse
-  x$setinv(inv)
-  inv                    ##function of inverse of 'x' will return because matrix
-       
+  notitia<- P$get()
+  R<-P$setpasar(notitia, ...)               #function help calculate value 'R'
+  P$setpasar(R)
+  R                                         ##function 'R' return matrix
+
 }
+P<-makeCacheMatrix(matrix(1:6,3,2))         #matrix maker
+P$get()                                     #matrix visual
+P$getpasar(R)                               #answer matrix, NULL
+cachepasar(P)                               #answer(NULL), end message
